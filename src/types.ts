@@ -1,34 +1,34 @@
 // src/types.ts
-export interface ActivityMeta {
+export type ActivityMeta = {
     label: string;
     fillColor: string;
 }
 
-export interface ActivityItem {
+export type ActivityItem = {
     name: string;
     value: string;
 }
 
-export interface DayWiseActivityItem {
+export type DayWiseActivityItem = {
     count: string;
     label: string;
     fillColor: string;
 }
 
-export interface DayWiseActivity {
+export type DayWiseActivity = {
     date: string;
     items: {
         children: DayWiseActivityItem[];
     };
 }
 
-export interface DeveloperActivity {
+export type DeveloperActivity = {
     name: string;
     totalActivity: ActivityItem[];
     dayWiseActivity: DayWiseActivity[];
 }
 
-export interface Data {
+export type Data = {
     AuthorWorklog: {
         activityMeta: ActivityMeta[];
         rows: DeveloperActivity[];
