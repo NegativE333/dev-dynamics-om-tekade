@@ -18,13 +18,17 @@ export const SummaryCard = ({
     let incidentAlerts = 0;
     let incidentsResolved = 0;
 
-    activities["PR Open"].forEach((i) => prOpen += i.y);
-    activities["PR Merged"].forEach((i) => prMerged += i.y);
-    activities["Commits"].forEach((i) => commits += i.y);
-    activities["PR Reviewed"].forEach((i) => prReviewed += i.y);
-    activities["PR Comments"].forEach((i) => prCommits += i.y);
-    activities["Incident Alerts"].forEach((i) => incidentAlerts += i.y);
-    activities["Incidents Resolved"].forEach((i) => incidentsResolved += i.y);
+    if(activities["PR Open"]) activities["PR Open"].forEach((i) => prOpen += i.y);
+
+    if(activities["PR Merged"]) activities["PR Merged"].forEach((i) => prMerged += i.y);
+
+    if(activities["Commits"]) activities["Commits"].forEach((i) => commits += i.y);
+
+    // activities["PR Reviewed"].forEach((i) => prReviewed += i.y);
+    // activities["PR Comments"].forEach((i) => prCommits += i.y);
+    // activities["Incident Alerts"].forEach((i) => incidentAlerts += i.y);
+    // activities["Incidents Resolved"].forEach((i) => incidentsResolved += i.y);
+
     
     return(
         <div className="hidden lg:flex flex-col bg-white/90 lg:w-[25%] p-4 rounded-md shadow-sm">

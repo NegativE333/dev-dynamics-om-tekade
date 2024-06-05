@@ -98,8 +98,6 @@ export const ActivityChart = ({
         },
     };
 
-    console.log(activities["PR Open"].map((i) => i.y));
-
     return (
         <div className="flex w-[100%] sm:w-[90%] md:w-[80%] lg:w-[70%] items-center lg:justify-between justify-center mx-8">
             <SummaryCard 
