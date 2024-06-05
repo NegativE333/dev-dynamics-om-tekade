@@ -18,8 +18,6 @@ function App() {
     return developerActivity.dayWiseActivity;
   }
 
-  console.log(data);
-
   return (
     <div className="h-[100%]">
       <Navbar />
@@ -29,7 +27,7 @@ function App() {
           <ActivityChart 
             key={d.name}
             developerName={d.name}
-            data={d.dayWiseActivity}
+            data={filterWeeklyData(d)}
           />
         ))}
       </div>
