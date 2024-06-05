@@ -18,14 +18,14 @@ function App() {
   }, []);
 
   const filterWeeklyData = (developerActivity: DeveloperActivity): DayWiseActivity[] => {
-    if(filter === "all"){
-      const sortedActivities = [...developerActivity.dayWiseActivity].sort((a, b) => {
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
-      });
-      return sortedActivities.slice(0, 7).reverse();
-    }
-    else{
-      return developerActivity.dayWiseActivity.map(day => ({
+    const sortedActivities = [...developerActivity.dayWiseActivity].sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    }).slice(0, 7).reverse();
+  
+    if (filter === "all") {
+      return sortedActivities;
+    } else {
+      return sortedActivities.map(day => ({
         ...day,
         items: {
           children: day.items.children.filter(item => item.label === filter),
@@ -33,6 +33,7 @@ function App() {
       }));
     }
   };
+  
 
   const handleFilterChange = (filter: string) => {
     setFilter(filter);
