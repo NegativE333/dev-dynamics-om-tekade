@@ -11,7 +11,7 @@ import { Footer } from './components/Footer';
 function App() {
   
   const [data, setData] = useState<DeveloperActivity[]>([]);
-  const [filter, setFilter] = useState<string>("all");
+  const [filter, setFilter] = useState<string>("7 Days");
 
   useEffect(() => {
     setData(sampleData.data.AuthorWorklog.rows);
@@ -21,9 +21,12 @@ function App() {
     const sortedActivities = [...developerActivity.dayWiseActivity].sort((a, b) => {
       return new Date(b.date).getTime() - new Date(a.date).getTime();
     }).slice(0, 7).reverse();
-  
-    if (filter === "all") {
+    
+    if(filter === "7 Days"){
       return sortedActivities;
+    }
+    else if (filter === "all") {
+      return developerActivity.dayWiseActivity;
     } else {
       return sortedActivities.map(day => ({
         ...day,

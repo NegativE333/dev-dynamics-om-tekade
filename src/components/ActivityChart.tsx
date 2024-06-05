@@ -2,6 +2,7 @@ import { DayWiseActivity } from "../types";
 import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { SummaryCard } from "./SummaryCard";
+import {format} from 'date-fns';
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -23,7 +24,7 @@ export const ActivityChart = ({
     name = name[0].toUpperCase() + name.substring(1);
 
     const labels = data.map((day) => (
-        day.date
+        format(day.date, "d MMM")
     ));
 
     const activities = data.reduce((a, day) => {
@@ -31,7 +32,7 @@ export const ActivityChart = ({
             if (!a[item.label]) {
                 a[item.label] = [];
             }
-            a[item.label].push({ x: day.date, y: parseInt(item.count) })
+            a[item.label].push({ x: format(day.date, "d MMM"), y: parseInt(item.count) })
         })
         return a;
     }, {} as Record<string, { x: string, y: number }[]>

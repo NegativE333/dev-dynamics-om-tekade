@@ -25,6 +25,15 @@ export const Filter = ({
             <button
                 onClick={(e) => {
                     e.preventDefault();
+                    onFilterChange("7 Days")
+                }} 
+                className={`px-4 py-1 border-2 rounded-2xl transition ${currFilter === "7 Days" ? 'border-blue-400 bg-blue-400/20 text-blue-900' : ""}`}
+            >
+                7 Days
+            </button>
+            <button
+                onClick={(e) => {
+                    e.preventDefault();
                     onFilterChange("PR Open")
                 }} 
                 className={`px-4 py-1 border-2 rounded-2xl transition ${currFilter === "PR Open" ? 'border-blue-400 bg-blue-400/20 text-blue-900' : ""}`}
