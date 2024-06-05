@@ -3,7 +3,7 @@
 export const Heading = () => {
     return(
         <div className="flex items-center justify-center pt-24">
-            <h2 className="text-3xl font-semibold">
+            <h2 className="text-3xl text-center font-semibold">
                 <span className="text-blue-600">
                     Developer's
                 </span> Activity Dashboard

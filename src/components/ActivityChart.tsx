@@ -1,6 +1,7 @@
 import { DayWiseActivity } from "../types";
 import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
+import { SummaryCard } from "./SummaryCard";
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -13,6 +14,13 @@ export const ActivityChart = ({
     data,
     developerName
 }: Props) => {
+
+    let name = developerName.split("@")[0];
+    const index = name.indexOf(".");
+    if(index !== -1){
+        name = name.substring(0, 6);
+    }
+    name = name[0].toUpperCase() + name.substring(1);
 
     const labels = data.map((day) => (
         day.date
@@ -70,7 +78,7 @@ export const ActivityChart = ({
             },
             title: {
                 display: true,
-                text: 'Developer Activity Over the Week',
+                text: `${name} Activity Over the Week`,
             },
         },
         scales: {
@@ -90,12 +98,17 @@ export const ActivityChart = ({
         },
     };
 
+    console.log(activities["PR Open"].map((i) => i.y));
+
     return (
-        <div className="flex items-center justify-center flex-col w-[90%] md:w-[75%] lg:w-[45%] bg-white/90 rounded-lg shadow-sm">
-            <div>
-                {developerName}
+        <div className="flex w-[100%] sm:w-[90%] md:w-[80%] lg:w-[70%] items-center lg:justify-between justify-center mx-8">
+            <SummaryCard 
+                developerName={developerName}
+                activities={activities}
+            />
+            <div className="bg-white/90 rounded-lg shadow-sm lg:w-[72%] w-[100%]">
+                <Line data={chartData} options={options} />
             </div>
-            <Line data={chartData} options={options} />
         </div>
     )
 }
