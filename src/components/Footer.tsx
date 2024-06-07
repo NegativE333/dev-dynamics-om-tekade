@@ -3,13 +3,13 @@ import { FaGithub, FaLinkedin, FaLink } from "react-icons/fa";
 export const Footer = () => {
     return(
         <footer className="h-16 w-full bg-white border-t mt-10 flex items-center px-4 lg:px-16">
-            <div className="flex items-center w-full text-lg">
+            <div className="flex items-center w-full text-base lg:text-lg">
                 <h3 className="font-semibold">
-                    Developed By <span className="text-blue-600">
+                    Developed by <span className="text-blue-600">
                         Om Tekade
                     </span>
                 </h3> 
-                <div className="ml-auto text-xl flex gap-4">
+                <div className="ml-auto text-lg lg:text-xl flex gap-4">
                     <a 
                         href="https://github.com/NegativE333" 
                         target="_blank"

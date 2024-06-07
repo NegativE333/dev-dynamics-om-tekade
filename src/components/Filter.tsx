@@ -9,8 +9,6 @@ export const Filter = ({
     currFilter
 }: Props) => {
 
-    const isActive = true;
-
     return(
         <div className="flex flex-wrap gap-2 my-8 items-center justify-center lg:w-[70%]">
             <button
