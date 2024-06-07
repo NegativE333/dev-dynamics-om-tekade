@@ -1,4 +1,3 @@
-// src/types.ts
 export type ActivityMeta = {
     label: string;
     fillColor: string;

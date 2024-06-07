@@ -54,11 +54,14 @@ function App() {
       </div>
       <div className='flex flex-col items-center justify-center w-full gap-4 px-8'>
         {data.map((d) => (
-          <ActivityChart 
-            key={d.name}
-            developerName={d.name}
-            data={filterWeeklyData(d)}
-          />
+          <>
+            <ActivityChart 
+              key={d.name}
+              developerName={d.name}
+              data={filterWeeklyData(d)}
+            />
+            <hr className="w-[95%] sm:w-[80%] md:w-[70%] h-0.5 mx-auto bg-gray-300 border-0 rounded my-2 md:my-4" />
+          </>
         ))}
       </div>
       <Footer />
